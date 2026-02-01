@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Will You Be My Valentine?</title>
-    <meta property="og:title" content="A Special Message">
+    <title>A Special Message for You</title>
+    <meta property="og:title" content="Open this... ❤️">
     
     <style>
         body { font-family: 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #ffe6e6; margin: 0; overflow: hidden; }
-        h1 { color: #ff4d4d; text-align: center; padding: 0 20px; }
+        h1 { color: #ff4d4d; text-align: center; padding: 0 20px; text-shadow: 1px 1px white; }
         .buttons { position: relative; width: 100%; max-width: 300px; height: 100px; margin-top: 20px; }
-        button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; transition: 0.3s; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 15px; border: none; transition: 0.3s; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         #yesBtn { background-color: #ff4d4d; color: white; position: absolute; left: 10%; }
-        #noBtn { background-color: #888; color: white; position: absolute; right: 10%; }
+        #noBtn { background-color: #ffffff; color: #ff4d4d; position: absolute; right: 10%; border: 1px solid #ff4d4d; }
     </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
 
     <div id="response" style="display:none; text-align:center;">
         <h1>I KNEW YOU'D SAY YES! 🥰❤️</h1>
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3/l41lTfX8Xf0S3u3uM/giphy.gif" width="300" style="border-radius: 20px;">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3/l41lTfX8Xf0S3u3uM/giphy.gif" width="280" style="border-radius: 20px; border: 5px solid white;">
     </div>
 
     <div class="buttons" id="buttonContainer">
@@ -29,8 +29,8 @@
 
     <script>
         function moveButton() {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
             const btn = document.getElementById('noBtn');
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
@@ -46,3 +46,4 @@
     </script>
 </body>
 </html>
+   
