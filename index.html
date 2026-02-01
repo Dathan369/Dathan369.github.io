@@ -1,99 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>A Special Message</title>
+    <meta property="og:title" content="A Surprise for You... ❤️">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Knew You'd Say Yes!</title>
+    
     <style>
-        body {
-            background-color: #fce4ec; /* Soft pink background */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            color: #4a4a4a;
-            text-align: center;
-        }
-
-        h1 {
-            color: #d81b60;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .gif-container {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background: white;
-            padding: 10px;
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 15px;
-        }
-
-        .facts-container {
-            margin-top: 40px;
-            max-width: 450px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        h3 {
-            color: #ad1457;
-            margin-bottom: 15px;
-        }
-
-        .fact-item {
-            margin: 10px 0;
-            font-size: 1.1rem;
-            list-style: none;
-            padding: 0;
-        }
-
-        .nerdy-fact {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-            background: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
-            color: #880e4f;
+        body { font-family: 'Arial', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #ffe6e6; margin: 0; overflow: hidden; transition: background-color 1s; }
+        h1 { color: #ff4d4d; text-align: center; padding: 0 20px; z-index: 10; text-shadow: 2px 2px white; }
+        .buttons { position: relative; width: 100%; max-width: 300px; height: 100px; margin-top: 20px; z-index: 10; }
+        button { padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 50px; border: none; transition: 0.3s; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        #yesBtn { background-color: #ff4d4d; color: white; position: absolute; left: 10%; }
+        #noBtn { background-color: #ffffff; color: #ff4d4d; position: absolute; right: 10%; border: 1px solid #ff4d4d; }
+        .whatsapp-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; }
+        
+        .heart { position: fixed; top: -10%; font-size: 24px; animation: fall linear forwards; z-index: 1; }
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
         }
     </style>
 </head>
 <body>
 
-    <h1>I KNEW YOU'D SAY YES! 🥰❤️</h1>
+    <h1 id="question">Will you be my Valentine? ❤️</h1>
 
-    <div class="gif-container">
-        <img src="celebration.gif" alt="Happy Celebration">
+    <div id="response" style="display:none; text-align:center; z-index: 10;">
+        <h1>I KNEW YOU'D SAY YES! 🥰❤️</h1>
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ3bmZ3bmZ3bmZ3bmZ3bmZ3bmZ3/l41lTfX8Xf0S3u3uM/giphy.webp" width="280" style="border-radius: 20px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+        <br>
+        <a href="https://wa.me/?text=I%20Say%20YES!%20❤️" class="whatsapp-btn">Tell me on WhatsApp! 📱</a>
     </div>
 
-    <div class="facts-container">
-        <h3>✨ Fun Facts About Us ✨</h3>
-        <div class="fact-item">📍 <b>Where it began:</b> [Insert First Place Here]</div>
-        <div class="fact-item">🍕 <b>Favorite "Us" Meal:</b> [Insert Food Here]</div>
-        <div class="fact-item">💫 <b>I knew you were the one:</b> When you first smiled at me.</div>
-        
-        <div class="nerdy-fact">
-            Status: 100% Operational | No bugs in our love.
-        </div>
+    <div class="buttons" id="buttonContainer">
+        <button id="yesBtn" onclick="celebrate()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
     </div>
 
+    <script>
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * (window.innerHeight - 60);
+            const btn = document.getElementById('noBtn');
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            btn.style.position = 'fixed';
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        function celebrate() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('buttonContainer').style.display = 'none';
+            document.getElementById('response').style.display = 'block';
+            document.body.style.backgroundColor = "#ffb6c1";
+            setInterval(createHeart, 150);
+        }
+    </script>
 </body>
 </html>
