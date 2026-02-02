@@ -3,115 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Surprise</title>
+    <title>I Knew You'd Say Yes!</title>
     <style>
         body {
+            background-color: #fce4ec; /* Soft pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
-            background-color: #fce4ec;
-            font-family: 'Poppins', sans-serif;
-            overflow: hidden;
-        }
-
-        .container {
+            padding: 20px;
+            color: #4a4a4a;
             text-align: center;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 350px;
-            position: relative;
-        }
-
-        img {
-            width: 200px;
-            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 30px;
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .gif-container {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: white;
+            padding: 10px;
         }
 
-        button {
-            padding: 10px 25px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.2s;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
         }
 
-        #yesBtn {
-            background-color: #ff4d4d;
-            color: white;
+        .facts-container {
+            margin-top: 40px;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        #noBtn {
-            background-color: #eee;
-            color: #333;
-            position: absolute;
-        }
-
-        /* Hidden section that shows after clicking Yes */
-        #celebration {
-            display: none;
+        h3 {
+            color: #ad1457;
+            margin-bottom: 15px;
         }
 
         .fact-item {
-            margin-top: 15px;
+            margin: 10px 0;
+            font-size: 1.1rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nerdy-fact {
+            font-family: 'Courier New', Courier, monospace;
             font-size: 0.9rem;
-            color: #666;
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            color: #880e4f;
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
-        <div id="askScreen">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5bmNqZ3R4eG55eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFwPSc/L1f3uDxSO9YBXYp67M/giphy.gif" alt="Cute Bears">
-            <h1>Do you love me?</h1>
-            <div class="buttons">
-                <button id="yesBtn" onclick="celebrate()">Yes</button>
-                <button id="noBtn" onmouseover="moveNo()">No</button>
-            </div>
-        </div>
+    <h1>I KNEW YOU'D SAY YES! 🥰❤️</h1>
 
-        <div id="celebration">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmtuNHF6bHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFwPSc/26FLdmIp6wJr91JAI/giphy.gif" alt="Happy Bears">
-            <h1>I knew it! 😍❤️</h1>
-            <div class="fact-item">📍 <b>Fun Fact:</b> I've been coding this just for you!</div>
-        </div>
+    <div class="gif-container">
+        <img src="celebration.gif" alt="Happy Celebration">
     </div>
 
-    <script>
-        function moveNo() {
-            const btn = document.getElementById('noBtn');
-            // Generate random positions within the container
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-            btn.style.position = 'fixed';
-        }
-
-        function celebrate() {
-            document.getElementById('askScreen').style.display = 'none';
-            document.getElementById('celebration').style.display = 'block';
-            document.body.style.backgroundColor = '#ffc1e3'; // Change background to darker pink
-        }
-    </script>
+    <div class="facts-container">
+        <h3>✨ Fun Facts About Us ✨</h3>
+        <div class="fact-item">📍 <b>Where it began:</b> [Insert First Place Here]</div>
+        <div class="fact-item">🍕 <b>Favorite "Us" Meal:</b> [Insert Food Here]</div>
+        <div class="fact-item">💫 <b>I knew you were the one:</b> When you first smiled at me.</div>
+        
+        <div class="nerdy-fact">
+            Status: 100% Operational | No bugs in our love.
+        </div>
+    </div>
 
 </body>
 </html>
